@@ -37,7 +37,20 @@ public class Task{
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
-    public Task(){
+    protected Task(){};
+
+    public Task(String title,
+                Category category,
+                String description){
+        this.title = title;
+        this.category = category;
+        this.description = description;
+        this.status = Status.IN_WORK;
         this.createdAt = LocalDateTime.now();
+    }
+
+    public void changeStatus(Status newStatus){
+        if(this.status==Status.DONE) throw new IllegalArgumentException("if status is done it can't be changed" );
+        this.status = newStatus;
     }
 }
