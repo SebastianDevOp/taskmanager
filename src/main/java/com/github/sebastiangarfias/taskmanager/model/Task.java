@@ -16,6 +16,7 @@ import java.time.*;
 @Entity
 public class Task{
 
+    //Attributes
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -39,6 +40,7 @@ public class Task{
 
     protected Task(){};
 
+    //Constructor
     public Task(String title,
                 Category category,
                 String description){
@@ -49,8 +51,12 @@ public class Task{
         this.createdAt = LocalDateTime.now();
     }
 
+    //change Status method
     public void changeStatus(Status newStatus){
         if(this.status==Status.DONE) throw new IllegalArgumentException("if status is done it can't be changed" );
         this.status = newStatus;
     }
+
+    //Getter
+    public long getId(){return  this.id;}
 }

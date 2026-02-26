@@ -43,6 +43,7 @@ public class TaskService {
     }
 
     public Task getById(Long id){
+        if(id==null) throw  new IllegalArgumentException("id must not be null");
         return taskRepository
                 .findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("task not found"));
@@ -50,8 +51,10 @@ public class TaskService {
 
 
 
-    public void deleteTask(String title){
-
+    public void deleteTask(Long id){
+        if(id==null) throw new IllegalArgumentException("id must not be null");
+        Task task = getById(id);
+        taskRepository.delete(task);
     }
 
 }
