@@ -32,4 +32,9 @@ public class TaskController {
         );
     }
 
+    @GetMapping("/{id}")
+    public Task getTaskById(@PathVariable Long id){
+        return taskService.getById(id);
+    }
+
 }

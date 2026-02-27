@@ -46,7 +46,7 @@ public class TaskService {
         if(id==null) throw  new IllegalArgumentException("id must not be null");
         return taskRepository
                 .findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("task not found"));
+                .orElseThrow(() -> new TaskNotFoundException(id));
     }
 
 
