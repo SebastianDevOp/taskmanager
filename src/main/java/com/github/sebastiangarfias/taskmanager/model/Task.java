@@ -58,5 +58,11 @@ public class Task{
     }
 
     //Getter
-    public long getId(){return  this.id;}
+    public long getId(){return this.id;}
+
+    public String getTitle(){return this.title;}
+
+    public String getDescription(){return this.description;}
+
+    public Category getCategory(){return this.category;}
 }
